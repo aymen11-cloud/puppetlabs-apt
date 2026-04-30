@@ -7,9 +7,7 @@
 define apt::mark (
   Enum['auto','manual','hold','unhold'] $setting,
 ) {
-  if $title !~ /^[a-z0-9][a-z0-9.+\-]+$/ {
-    fail("Invalid package name: ${title}")
-  }
+
 
   if $setting == 'unhold' {
     $unless_cmd = undef
